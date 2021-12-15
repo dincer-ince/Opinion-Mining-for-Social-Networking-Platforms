@@ -78,11 +78,14 @@
 
 <!-- Top Posts -->
 <div style="position:absolute;right:5%;top:30%">
-    <div style="background-color: white; min-width: 300px; border-radius: 9px; " class="container">
-        <h1 style="margin-bottom: 30px; border-bottom: solid; border-color: black;" >Top Posts</h1>
+    <div style="background-color: white; min-width: 400px; border-radius: 9px; " class="container">
+        <div style="min-height: 30px;" class="row"></div>
+        <h1 style=" margin-bottom: 30px; border-bottom: solid; border-color: black;min-height: 100px;" >Top Posts</h1>
+        
         <ng-container *ngFor="let element of postas">
-            <h3 style="margin-bottom: 30px; border-bottom: solid; border-color: black; text-align: center;">{{element.postTitle}}</h3>
+            <h3 (click)="this.Post=element" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-bottom: 30px; border-bottom: solid; border-color:  rgb(228, 228, 228); text-align: center; min-height: 60px;">{{element.postTitle}}</h3>
         </ng-container>
+        <div style="min-height: 30px;" class="row"></div>
 
     </div>
 </div>
@@ -103,14 +106,16 @@
 
         <div style="background-color: white; border-radius: 10px;margin-top: 50px;" class="container">
             <form [formGroup]="this.formPost">
+                <div style="min-height: 20px;" class="row"></div>
                 <h4 style="margin-left: 50px;">Post Title</h4>
                 <textarea formControlName="postTitle" style="margin-left: 50px; font-size: larger;" cols="90" rows="1"></textarea>
                 <h4 style="margin-left: 50px;margin-top: 40px;">Post Content (image link)</h4>
                 <textarea formControlName="postContent" style="margin-left: 50px; font-size:large"cols="97" rows="3"></textarea>
                 <div style="margin-left: 60%;margin-top:50px;"class="row">
                     <button style="max-width: 150px; margin-right: 10px;"  class="btn" (click)="createPost()">Create Post</button>
-                    <button style="max-width: 100px;"   class="btn" (click)="mainMenuOpen=true">cancel</button>
+                    <button style="max-width: 100px; "   class="btn" (click)="mainMenuOpen=true">cancel</button>
                 </div>
+                <div style="min-height: 20px;" class="row"></div>
             </form>
         </div>
 
