@@ -4,4 +4,5 @@ export class Post {
     postOwner="";
     postTitle="";
     postComments:Comment[]=[{votes:0,author:"",text:""}]
+    postVotes:number=0;
 }
