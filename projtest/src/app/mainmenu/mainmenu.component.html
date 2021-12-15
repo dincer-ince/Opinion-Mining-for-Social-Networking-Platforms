@@ -1,0 +1,176 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-4">
+    <h1>Opinion Mining</h1>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        
+      </ul>
+    </div>
+  </nav>
+
+
+
+<div *ngIf="mainMenuOpen==true" style="background-color: rgb(228, 228, 228);">
+    <div style="margin-bottom: 50px; min-block-size: 50px;" class="container">
+            
+    </div>
+
+    <div style="margin-bottom: 50px; border-radius: 7px; background-color: white; min-height: 100px;" class="container">
+        <div class="row ">
+            <div class="col-1"></div>
+            <div class="col-5">
+                <h1 style="margin-top: 20px;">Current Page</h1>
+            </div>
+            <div class="col-6 ">
+                <button type="button " style="margin-bottom: 10px;margin-top: 20px;min-height: 60px; min-width: 110px;" class="btn" >
+                    Best
+                </button>
+                <button (click)="sort()" type="button" style="margin-left:50px;margin-bottom: 10px;margin-top: 20px;min-height: 60px; min-width: 110px;" class="btn ">
+                    New
+                </button>
+                <button type="button" style="margin-left:50px;margin-bottom: 10px;margin-top: 20px;min-height: 60px; min-width: 110px;" class="btn " >
+                    Today
+                </button>
+            </div>
+        </div>
+    </div>
+    <ng-container *ngFor="let element of postas">
+        
+
+        <div class="container" style="border-radius: 10px; margin-bottom: 20px; background-color: white;" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="this.Post=element">
+            <div class="row">
+                <div style="border-right: groove;" class="col-1 ">
+                    <div class="row"><img class="img-fluid" src="https://www.ondacer.com/1052606-medium_default/triangle-floor-ash-grey-matt-20x23x08cm.jpg" alt=""></div>
+                    <div class="row"><h1 style="margin-left: 25%;"> 1</h1></div>
+                    <div class="row"><img class="img-fluid" src="https://www.ondacer.com/1052606-medium_default/triangle-floor-ash-grey-matt-20x23x08cm.jpg" alt=""></div>
+                    
+                </div>
+                <div class="col-6">
+                    <h3 style="margin-top: 10px;">{{this.element.postOwner}}</h3>
+                    <h1>{{this.element.postTitle}}</h1>
+                    <img class="img-fluid " style=" margin-left: 50%;" src="{{this.element.postContent}}" alt="">
+                    <div class="row"></div>
+                    <button type="button" style="margin-top: 20px; margin-bottom: 10px;" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="this.Post=element">
+                        Comment
+                    </button>
+                    <button type="button" style="margin-top: 20px; margin-bottom: 10px; margin-left: 20px;" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="this.Post=element">
+                        Share
+                    </button>
+                    <button type="button" style="margin-top: 20px; margin-bottom: 10px;margin-left: 20px;" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="this.Post=element">
+                        Save
+                    </button>
+                </div>
+    
+            </div>
+
+            <!-- comment add gelicek -->
+    
+            
+    
+        </div>
+    </ng-container>
+</div>
+
+<!-- Top Posts -->
+<div style="position:absolute;right:5%;top:30%">
+    <div style="background-color: white; min-width: 300px; border-radius: 9px; " class="container">
+        <h1 style="margin-bottom: 30px; border-bottom: solid; border-color: black;" >Top Posts</h1>
+        <ng-container *ngFor="let element of postas">
+            <h3 style="margin-bottom: 30px; border-bottom: solid; border-color: black; text-align: center;">{{element.postTitle}}</h3>
+        </ng-container>
+
+    </div>
+</div>
+
+<button style="position: absolute;left:10%; top:30%;" class="btn btn-lg"(click)="mainMenuOpen=false">New post</button>
+
+<!-- New post -->
+<div *ngIf="this.mainMenuOpen==false" style="background-color: rgb(228, 228, 228);min-height:1440px;">
+    <div style="margin-bottom: 50px; min-block-size: 50px; " class="container">
+            
+    </div>
+    
+    <div class="container" style="border-radius: 10px; background-color: rgb(228, 228, 228);">
+        <div class="row">
+            <h1 style="margin-bottom: 30px; border-bottom: solid; border-color: black;">Create new Post</h1>
+            
+        </div>
+
+        <div style="background-color: white; border-radius: 10px;margin-top: 50px;" class="container">
+            <form [formGroup]="this.formPost">
+                <h4 style="margin-left: 50px;">Post Title</h4>
+                <textarea formControlName="postTitle" style="margin-left: 50px; font-size: larger;" cols="90" rows="1"></textarea>
+                <h4 style="margin-left: 50px;margin-top: 40px;">Post Content (image link)</h4>
+                <textarea formControlName="postContent" style="margin-left: 50px; font-size:large"cols="97" rows="3"></textarea>
+                <div style="margin-left: 60%;margin-top:50px;"class="row">
+                    <button style="max-width: 150px; margin-right: 10px;"  class="btn" (click)="createPost()">Create Post</button>
+                    <button style="max-width: 100px;"   class="btn" (click)="mainMenuOpen=true">cancel</button>
+                </div>
+            </form>
+        </div>
+
+       
+
+        
+
+    </div>
+    
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            
+            <div class="modal-body">
+                <div class="row">
+                    <div style="border-right: groove;" class="col-1">
+                        <h1>1</h1>
+                    </div>
+                    <div class="col-6">
+                        <h3>{{this.Post.postOwner}}</h3>
+                        <h1>{{this.Post.postTitle}}</h1>
+                        <img style=" margin-left: 50%;"class="img-fluid" src="{{this.Post.postContent}}" alt="">
+                        
+                    </div>
+                    
+                </div>
+
+                <div class="mb-3">
+                    <h2>Add comment</h2>
+                    <form [formGroup]="this.formComment" autocomplete="off">
+                        <textarea class="form-control" formControlName="commentText" rows="3"></textarea>
+                    </form>    
+                    <button class="btn" style="margin-left:80%;margin-top: 20px;" (click)="createComment()">Create Comment</button>
+                  </div>
+                <ng-container *ngFor="let comment of Post.postComments">
+                    <div style="margin-bottom: 10px;" class="row">
+                        <div style="border-right: groove;" class="col-1">
+                            <h1>{{comment.votes}}</h1>
+                        </div>
+                        <div class="col-6">
+                            <div >
+                                <h5>{{comment.author}}</h5>
+                                <h5 style="margin-left: 20px;">{{comment.text}}</h5>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+    
+                </ng-container>
+
+            </div>
+
+        </div>
+    </div>
+</div>
