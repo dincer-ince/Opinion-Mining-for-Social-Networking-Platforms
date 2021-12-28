@@ -23,6 +23,12 @@ export class MainmenuComponent implements OnInit {
 
   })
 
+  Topics:string[] = [
+    "Funny",
+    "Sports",
+    "Programming",
+    "Music"
+  ];
   
   mainMenuOpen:boolean=true;
   rndComments:Comment[]=[
@@ -65,6 +71,7 @@ export class MainmenuComponent implements OnInit {
   ]
 
   formPost=this.fb.group({
+    postTopic:"",
     postContent: "",
     postOwner: "Admin",
     postTitle: "",
@@ -73,6 +80,7 @@ export class MainmenuComponent implements OnInit {
 
   postas: Post[] = [
     {
+      postTopic: this.Topics[0],
       postContent: "https://i.redd.it/irxao14hqb581.png",
       postOwner: "Ahmet",
       postTitle: "funny words",
@@ -80,6 +88,7 @@ export class MainmenuComponent implements OnInit {
       postVotes: 300
     },
     {
+      postTopic: this.Topics[0],
       postContent: "https://64.media.tumblr.com/958f628cb6dfc4913c64b3ad71afaa5b/tumblr_pxgvdvUHgn1ypupneo1_400.gifv",
       postOwner: "Ahmet",
       postTitle: "look at this",
@@ -87,6 +96,7 @@ export class MainmenuComponent implements OnInit {
       postVotes: 5
     },
     {
+      postTopic: this.Topics[0],
       postContent: "https://i.imgur.com/96frlHk.jpeg",
       postOwner: "mehmet",
       postTitle: "not funy",
@@ -95,6 +105,7 @@ export class MainmenuComponent implements OnInit {
     }];
 
   Post: Post = {
+    postTopic: "",
     postContent: "filler",
     postOwner: "filler",
     postTitle: "funny words",
@@ -107,25 +118,29 @@ export class MainmenuComponent implements OnInit {
 
   createPost(){
     this.postas.push({
+      postTopic: this.formPost.value.postTopic,
       postContent: this.formPost.value.postContent,
       postOwner: this.formPost.value.postOwner,
       postTitle: this.formPost.value.postTitle,
       postComments: [this.rndComments[6]],
       postVotes: 1
     })
-    console.log(this.postas)
+    console.log(this.formPost)
     this.mainMenuOpen=true;
+    this.sortByNew();
   }
   
 
   loadPosts() {
     this.postas.push({
-      postContent: "https://preview.redd.it/ibcc1lcbdn581.jpg?width=640&crop=smart&auto=webp&s=478a1035d046cb7d8bf1ee163409b2d0b2d6de9f",
+      postTopic: this.Topics[0],
+      postContent: "https://i.imgur.com/S2lYrKD.gif",
       postOwner: "carsi",
       postTitle: "yeter artuj",
       postComments: [this.rndComments[1],this.rndComments[5]],
       postVotes: 467
     })
+    this.sortByNew()
   }
   sortByNew() {
     this.viewPosts=this.postas;

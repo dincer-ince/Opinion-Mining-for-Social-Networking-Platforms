@@ -1,5 +1,6 @@
 import { Comment } from "./comment.model";
 export class Post {
+    postTopic="";
     postContent="";
     postOwner="";
     postTitle="";

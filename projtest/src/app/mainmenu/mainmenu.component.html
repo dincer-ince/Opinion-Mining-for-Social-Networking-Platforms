@@ -1,26 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light py-4">
     <h1>Opinion Mining</h1>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <textarea  placeholder="Search" style="resize: none; font-size:xx-large;margin-left: 100%; " cols="30" rows="1"></textarea>
-          
-        </li>
-        <i (click)="this.mainMenuOpen=true" style="margin-left: 110%; border-right: solid;border-color: black;min-width: 15%;" class="fas fa-home fa-3x "></i>
-        <i style="margin-left: 5%;" class="fas fa-bell fa-3x "></i>
-        <i (click)="this.mainMenuOpen=false" style="margin-left: 5%;" class="fas fa-plus fa-3x "></i>
-      </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <textarea placeholder="Search" style="resize: none; font-size:xx-large;margin-left: 100%; " cols="30"
+                    rows="1"></textarea>
+
+            </li>
+            <i (click)="this.mainMenuOpen=true"
+                style="margin-left: 110%; border-right: solid;border-color: black;min-width: 15%;"
+                class="fas fa-home fa-3x "></i>
+            <i style="margin-left: 5%;" class="fas fa-bell fa-3x "></i>
+            <i (click)="this.mainMenuOpen=false" style="margin-left: 5%;" class="fas fa-plus fa-3x "></i>
+        </ul>
     </div>
-  </nav>
+</nav>
 
 
 
 <div *ngIf="mainMenuOpen==true" style="background-color: rgb(228, 228, 228);">
     <div style="margin-bottom: 50px; min-block-size: 50px;" class="container">
-            
+
     </div>
 
     <div style="margin-bottom: 50px; border-radius: 7px; background-color: white; min-height: 100px;" class="container">
@@ -30,51 +34,61 @@
                 <h1 style="margin-top: 20px;">Current Page</h1>
             </div>
             <div class="col-6 ">
-                <button (click)="sortByBest()" type="button " style="margin-bottom: 10px;margin-top: 20px;min-height: 60px; min-width: 110px;" class="btn" >
+                <button (click)="sortByBest()" type="button "
+                    style="margin-bottom: 10px;margin-top: 20px;min-height: 60px; min-width: 110px;" class="btn">
                     Best
                 </button>
-                <button (click)="sortByNew()" type="button" style="margin-left:50px;margin-bottom: 10px;margin-top: 20px;min-height: 60px; min-width: 110px;" class="btn ">
+                <button (click)="sortByNew()" type="button"
+                    style="margin-left:50px;margin-bottom: 10px;margin-top: 20px;min-height: 60px; min-width: 110px;"
+                    class="btn ">
                     New
                 </button>
-                <button type="button" style="margin-left:50px;margin-bottom: 10px;margin-top: 20px;min-height: 60px; min-width: 110px;" class="btn " >
+                <button type="button"
+                    style="margin-left:50px;margin-bottom: 10px;margin-top: 20px;min-height: 60px; min-width: 110px;"
+                    class="btn ">
                     Today
                 </button>
             </div>
         </div>
     </div>
     <ng-container *ngFor="let element of viewPosts">
-        
 
-        <div class="container" style="border-radius: 10px; margin-bottom: 20px; background-color: white;" >
+
+        <div class="container" style="border-radius: 10px; margin-bottom: 20px; background-color: white;">
             <div class="row">
                 <div style="border-right: groove;" class="col-1 ">
-                    <i (click)="element.postVotes=element.postVotes+1" style="margin-left: 15%; margin-bottom: 5px;" class="fas fa-caret-up fa-4x"></i>
+                    <i (click)="element.postVotes=element.postVotes+1" style="margin-left: 15%; margin-bottom: 5px;"
+                        class="fas fa-caret-up fa-4x"></i>
                     <h1 style="text-align: center;"> {{element.postVotes}}</h1>
-                    <i (click)="element.postVotes=element.postVotes-1" style="margin-left: 15%;" class="fas fa-caret-down fa-4x"></i>
-                    
+                    <i (click)="element.postVotes=element.postVotes-1" style="margin-left: 15%;"
+                        class="fas fa-caret-down fa-4x"></i>
+
                 </div>
                 <div class="col-6" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="this.Post=element">
                     <h3 style="margin-top: 10px;">{{this.element.postOwner}}</h3>
                     <h1>{{this.element.postTitle}}</h1>
                     <img class="img-fluid " style=" margin-left: 50%;" src="{{this.element.postContent}}" alt="">
                     <div class="row"></div>
-                    <button type="button" style="margin-top: 20px; margin-bottom: 10px;" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="this.Post=element">
+                    <button type="button" style="margin-top: 20px; margin-bottom: 10px;" class="btn "
+                        data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="this.Post=element">
                         Comment
                     </button>
-                    <button type="button" style="margin-top: 20px; margin-bottom: 10px; margin-left: 20px;" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="this.Post=element">
+                    <button type="button" style="margin-top: 20px; margin-bottom: 10px; margin-left: 20px;" class="btn "
+                        data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="this.Post=element">
                         Share
                     </button>
-                    <button type="button" style="margin-top: 20px; margin-bottom: 10px;margin-left: 20px;" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="this.Post=element">
+                    <button type="button" style="margin-top: 20px; margin-bottom: 10px;margin-left: 20px;" class="btn "
+                        data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="this.Post=element">
                         Save
                     </button>
                 </div>
-    
+
             </div>
 
             <!-- comment add gelicek -->
-    
-            
-    
+
+
+
         </div>
     </ng-container>
 </div>
@@ -83,10 +97,12 @@
 <div style="position:absolute;right:5%;top:30%">
     <div style="background-color: white; min-width: 400px; border-radius: 9px; " class="container">
         <div style="min-height: 30px;" class="row"></div>
-        <h1 style=" margin-bottom: 30px; border-bottom: solid; border-color: black;min-height: 100px;" >Top Posts</h1>
-        
+        <h1 style=" margin-bottom: 30px; border-bottom: solid; border-color: black;min-height: 100px;">Top Posts</h1>
+
         <ng-container *ngFor="let element of postas">
-            <h3 class="btn-xl" (click)="this.Post=element" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-bottom: 30px; border-bottom: solid; border-color:  rgb(228, 228, 228); text-align: center; min-height: 60px;">{{element.postTitle}}</h3>
+            <h3 class="btn-xl" (click)="this.Post=element" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                style="margin-bottom: 30px; border-bottom: solid; border-color:  rgb(228, 228, 228); text-align: center; min-height: 60px;">
+                {{element.postTitle}}</h3>
         </ng-container>
         <div style="min-height: 30px;" class="row"></div>
 
@@ -98,36 +114,52 @@
 <!-- New post -->
 <div *ngIf="this.mainMenuOpen==false" style="background-color: rgb(228, 228, 228);min-height:1440px;">
     <div style="margin-bottom: 50px; min-block-size: 50px; " class="container">
-            
+
     </div>
-    
+
     <div class="container" style="border-radius: 10px; background-color: rgb(228, 228, 228);">
         <div class="row">
             <h1 style="margin-bottom: 30px; border-bottom: solid; border-color: black;">Create new Post</h1>
-            
+
         </div>
 
         <div style="background-color: white; border-radius: 10px;margin-top: 50px;" class="container">
             <form [formGroup]="this.formPost">
+                <div class="form-group row" style="border-bottom: solid;border-color: black;">
+                    <div style="min-height:20px" class="row"></div>
+                    <div class="col-4">
+                        <h1 style="margin-left: 50px;">Select Topic</h1>
+                    </div>
+                    <div class="col">
+                        <select style="height:100%; width:70%" class="custom-select" formControlName="postTopic">
+                            <option value="" disabled>Choose your Topic</option>
+                            <option *ngFor="let topic of this.Topics">{{topic}}</option>
+                        </select>
+                    </div>
+                    <div style="min-height: 20px;" class="row"></div>
+                </div>
                 <div style="min-height: 20px;" class="row"></div>
                 <h4 style="margin-left: 50px;">Post Title</h4>
-                <textarea formControlName="postTitle" style="margin-left: 50px; font-size: larger;" cols="90" rows="1"></textarea>
+                <textarea formControlName="postTitle" style="margin-left: 50px; font-size: larger;" cols="90"
+                    rows="1"></textarea>
                 <h4 style="margin-left: 50px;margin-top: 40px;">Post Content (image link)</h4>
-                <textarea formControlName="postContent" style="margin-left: 50px; font-size:large"cols="97" rows="3"></textarea>
-                <div style="margin-left: 60%;margin-top:50px;"class="row">
-                    <button style="max-width: 150px; margin-right: 10px;"  class="btn" (click)="createPost()">Create Post</button>
-                    <button style="max-width: 100px; "   class="btn" (click)="mainMenuOpen=true">cancel</button>
+                <textarea formControlName="postContent" style="margin-left: 50px; font-size:large" cols="97"
+                    rows="3"></textarea>
+                <div style="margin-left: 60%;margin-top:50px;" class="row">
+                    <button style="max-width: 150px; margin-right: 10px;" class="btn" (click)="createPost()">Create
+                        Post</button>
+                    <button style="max-width: 100px; " class="btn" (click)="mainMenuOpen=true">cancel</button>
                 </div>
                 <div style="min-height: 20px;" class="row"></div>
             </form>
         </div>
 
-       
 
-        
+
+
 
     </div>
-    
+
 </div>
 
 
@@ -137,48 +169,54 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
-            
+
             <div class="modal-body">
                 <div class="row">
                     <div style="border-right: groove;" class="col-1">
-                        <i (click)="this.Post.postVotes=this.Post.postVotes+1" style="margin-left: 15%; margin-bottom: 5px;" class="fas fa-caret-up fa-4x"></i>
+                        <i (click)="this.Post.postVotes=this.Post.postVotes+1"
+                            style="margin-left: 15%; margin-bottom: 5px;" class="fas fa-caret-up fa-4x"></i>
                         <h1 style="text-align: center;"> {{this.Post.postVotes}}</h1>
-                        <i (click)="this.Post.postVotes=this.Post.postVotes-1"  style="margin-left: 15%;" class="fas fa-caret-down fa-4x"></i>
+                        <i (click)="this.Post.postVotes=this.Post.postVotes-1" style="margin-left: 15%;"
+                            class="fas fa-caret-down fa-4x"></i>
                     </div>
                     <div class="col-6">
+                        <h5>{{this.Post.postTopic}}</h5>
                         <h3>{{this.Post.postOwner}}</h3>
                         <h1>{{this.Post.postTitle}}</h1>
-                        <img style=" margin-left: 50%;"class="img-fluid" src="{{this.Post.postContent}}" alt="">
-                        
+                        <img style=" margin-left: 50%;" class="img-fluid" src="{{this.Post.postContent}}" alt="">
+
                     </div>
-                    
+
                 </div>
 
                 <div class="mb-3">
                     <h2>Add comment</h2>
                     <form [formGroup]="this.formComment" autocomplete="off">
                         <textarea class="form-control" formControlName="commentText" rows="3"></textarea>
-                    </form>    
-                    <button class="btn" style="margin-left:80%;margin-top: 20px;" (click)="createComment()">Create Comment</button>
-                  </div>
-                <ng-container *ngFor="let comment of Post.postComments">
+                    </form>
+                    <button class="btn" style="margin-left:80%;margin-top: 20px;" (click)="createComment()">Create
+                        Comment</button>
+                </div>
+                <ng-container *ngFor="let comment of this.Post.postComments">
                     <div *ngIf="comment.votes!=0" style="margin-bottom: 10px;" class="row">
                         <div style="border-right: groove;" class="col-1">
-                            <i (click)="(comment.votes=comment.votes+1)" style="margin-left: 30%; margin-bottom: 5px;" class="fas fa-caret-up fa-2x"></i>
+                            <i (click)="(comment.votes=comment.votes+1)" style="margin-left: 30%; margin-bottom: 5px;"
+                                class="fas fa-caret-up fa-2x"></i>
                             <h3 style="text-align: center;">{{comment.votes}}</h3>
-                            <i (click)="(comment.votes=comment.votes-1)" style="margin-left: 30%;" class="fas fa-caret-down fa-2x"></i>
+                            <i (click)="(comment.votes=comment.votes-1)" style="margin-left: 30%;"
+                                class="fas fa-caret-down fa-2x"></i>
                         </div>
                         <div class="col-6">
-                            <div >
+                            <div>
                                 <h5>{{comment.author}}</h5>
                                 <h5 style="margin-left: 20px;">{{comment.text}}</h5>
-                                
+
                             </div>
-                            
+
                         </div>
-                        
+
                     </div>
-    
+
                 </ng-container>
 
             </div>
