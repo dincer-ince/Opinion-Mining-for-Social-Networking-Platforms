@@ -1,0 +1,53 @@
+<div class="container form" style="width: 30%;">
+    <div class="imgcontainer">
+        <h2 *ngIf="this.isLogin==''" style="color: white;">Welcome to Feddit</h2>
+        <h2 *ngIf="this.isLogin=='login'" style="color: white;">Sign In to Feddit</h2>
+        <h2 *ngIf="this.isLogin=='register'" style="color: white;">Sign Up to Feddit</h2>
+        <img src="/assets/img/resized-image-Promo.jpeg">
+    </div>
+    <form  [formGroup]="service.formModel_user" autocomplete="off" (submit)="onSubmit()">
+    
+        <div *ngIf="this.isLogin == 'login'" class="login">
+            <div class="form-group">
+                <label style="color: white;">Email</label>
+                <input type="email" class="form-control" formControlName="Email">
+            </div>
+            <div class="form-group">
+                <label style="color: white;">Password</label>
+                <input type="password" class="form-control" formControlName="Password">
+            </div>
+            <div class="form-group mb-3 ">
+                <button type="submit" class="btn btn-danger">Sign In</button>
+            </div>
+        </div>
+    
+        <div *ngIf="this.isLogin == 'register'" class="register">
+            <div class="form-group">
+                <label style="color: white;">Username</label>
+                <input class="form-control" formControlName="Username">
+            </div>
+            <div class="form-group">
+                <label style="color: white;">Email</label>
+                <input type="email" class="form-control" formControlName="Email">
+            </div>
+            <div class="form-group">
+                <label style="color: white;">Password</label>
+                <input type="password" class="form-control" formControlName="Password">
+            </div>
+            <div class="form-group mt-3 mb-3">
+                <button type="submit" class="btn btn-danger">Register</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <div *ngIf="this.isLogin==''" class="form-group mb-3 ">
+                <button (click)="this.formLogin()" type="submit" class="btn btn-danger">Sign In</button>
+            </div>
+            <div *ngIf="this.isLogin==''" class="form-group border-top" style="text-align: center;">
+                <button (click)="this.formRegister()" class="btn btn-dark mt-3">Sign Up</button>
+            </div>
+            <div *ngIf="this.isLogin=='login' || this.isLogin=='register'" class="form-group border-top" style="text-align: center;">
+                <button (click)="this.isLogin=''" class="btn btn-dark mt-3">Go back</button>
+            </div>
+        </div>
+    </form>
+</div>
