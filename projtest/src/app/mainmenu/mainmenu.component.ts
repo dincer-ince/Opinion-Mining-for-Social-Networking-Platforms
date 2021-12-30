@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../models/post.model';
 import { Comment } from '../models/comment.model';
 import { FormBuilder } from '@angular/forms';
+import { PostService } from '../_services/post.service';
 
 
 @Component({
@@ -11,10 +12,10 @@ import { FormBuilder } from '@angular/forms';
 })
 export class MainmenuComponent implements OnInit {
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder, public service: PostService) { }
 
   ngOnInit(): void {
-    this.viewPosts= this.postas.slice();
+    this.viewPosts= this.service.postas.slice();
     this.loadPosts();
   }
 
@@ -22,94 +23,26 @@ export class MainmenuComponent implements OnInit {
     commentText:"",
 
   })
-
-  Topics:string[] = [
-    "Funny",
-    "Sports",
-    "Programming",
-    "Music"
-  ];
   
   mainMenuOpen:boolean=true;
-  rndComments:Comment[]=[
-    
-    {
-      votes:3,
-      author:"memedma",
-      text:"hahaa"
-    },
-    {
-      votes:6,
-      author:"sude",
-      text:"lollol"
-    },
-    {
-      votes:1,
-      author:"dubcer",
-      text:"skdjsdk"
-    },
-    {
-      votes:3,
-      author:"Kerem",
-      text:"komik degil"
-    },
-    {
-      votes:3,
-      author:"dora",
-      text:"komikmis"
-    },
-    {
-      votes:3,
-      author:"Mert",
-      text:"lsdksld"
-    },
-    {
-      votes:0,
-      author:"",
-      text:""
-    },
-  ]
+  
 
   formPost=this.fb.group({
     postTopic:"",
     postContent: "",
     postOwner: "Admin",
     postTitle: "",
-    postComments:[this.rndComments[0],this.rndComments[2]], 
+    postComments:[this.service.rndComments[0],this.service.rndComments[2]], 
   })
 
-  postas: Post[] = [
-    {
-      postTopic: this.Topics[0],
-      postContent: "https://i.redd.it/irxao14hqb581.png",
-      postOwner: "Ahmet",
-      postTitle: "funny words",
-      postComments: [this.rndComments[3],this.rndComments[2]],
-      postVotes: 300
-    },
-    {
-      postTopic: this.Topics[0],
-      postContent: "https://64.media.tumblr.com/958f628cb6dfc4913c64b3ad71afaa5b/tumblr_pxgvdvUHgn1ypupneo1_400.gifv",
-      postOwner: "Ahmet",
-      postTitle: "look at this",
-      postComments: [this.rndComments[3],this.rndComments[2]],
-      postVotes: 5
-    },
-    {
-      postTopic: this.Topics[0],
-      postContent: "https://i.imgur.com/96frlHk.jpeg",
-      postOwner: "mehmet",
-      postTitle: "not funy",
-      postComments: [this.rndComments[3],this.rndComments[4]],
-      postVotes: 903
-    }];
+  
 
   Post: Post = {
     postTopic: "",
     postContent: "filler",
     postOwner: "filler",
     postTitle: "funny words",
-    postComments: [this.rndComments[1],this.rndComments[5]],
+    postComments: [this.service.rndComments[1],this.service.rndComments[5]],
     postVotes: 123
   };
   
@@ -117,12 +50,12 @@ export class MainmenuComponent implements OnInit {
 
 
   createPost(){
-    this.postas.push({
+    this.service.postas.push({
       postTopic: this.formPost.value.postTopic,
       postContent: this.formPost.value.postContent,
       postOwner: this.formPost.value.postOwner,
       postTitle: this.formPost.value.postTitle,
-      postComments: [this.rndComments[6]],
+      postComments: [this.service.rndComments[6]],
       postVotes: 1
     })
     console.log(this.formPost)
@@ -132,22 +65,22 @@ export class MainmenuComponent implements OnInit {
   
 
   loadPosts() {
-    this.postas.push({
-      postTopic: this.Topics[0],
+    this.service.postas.push({
+      postTopic: this.service.Topics[0],
       postContent: "https://i.imgur.com/S2lYrKD.gif",
       postOwner: "carsi",
       postTitle: "yeter artuj",
-      postComments: [this.rndComments[1],this.rndComments[5]],
+      postComments: [this.service.rndComments[1],this.service.rndComments[5]],
       postVotes: 467
     })
     this.sortByNew()
   }
   sortByNew() {
-    this.viewPosts=this.postas;
+    this.viewPosts=this.service.postas;
     this.viewPosts.reverse();
   }
   sortByBest(){
-    this.viewPosts=this.postas;
+    this.viewPosts=this.service.postas;
     this.viewPosts.sort((a, b) => (a.postVotes > b.postVotes ? -1 : 1))
   }
 

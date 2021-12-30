@@ -1,1 +1,156 @@
 /* You can add global styles to this file, and also import other style files */
+/* Bordered form */
+  
+  .l-form {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+  }
+  
+  .form {
+      margin-top: 30px;
+      width: 500px;
+      height: auto;
+      padding: 4rem 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(14, 14, 14, 0.2);
+      background-color: #3c3f3f;
+  }
+  
+  .register {
+      color: rgb(185, 36, 36);
+      width: 100%;
+  }
+  
+  /*
+  form {
+      border: 3px solid #f1f1f1;
+    }
+    */
+    
+    /* Full-width inputs */
+    input[type=text], input[type=password] {
+      width: 100%;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    
+    /* Set a style for all buttons */
+    button {
+      color: white;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    
+    /* Add a hover effect for buttons */
+    button:hover {
+      opacity: 0.8;
+    }
+    
+    /* Center the avatar image inside this container */
+    .imgcontainer {
+      text-align: center;
+      margin: 24px 0 12px 0;
+    }
+    
+    /* Avatar image */
+    img.avatar {
+      width: 40%;
+      border-radius: 50%;
+    }
+    
+    /* Add padding to containers */
+    .container {
+      padding: 16px;
+    }
+    
+    /* The "Forgot password" text */
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+
+    
+    /* CSS */
+    .button-29 {
+      align-items: center;
+      appearance: none;
+      background-image: radial-gradient(100% 100% at 100% 0, #66a2ba 0, #66a2ba 100%);
+      border: 0;
+      border-radius: 6px;
+      box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+      box-sizing: border-box;
+      color: #fff;
+      cursor: pointer;
+      display: inline-flex;
+      font-family: "JetBrains Mono",monospace;
+      height: 40px;
+      justify-content: center;
+      line-height: 1;
+      list-style: none;
+      overflow: hidden;
+      padding-left: 16px;
+      padding-right: 16px;
+      position: relative;
+      text-align: left;
+      text-decoration: none;
+      transition: box-shadow .15s,transform .15s;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      white-space: nowrap;
+      will-change: box-shadow,transform;
+      font-size: 18px;
+    }
+    
+    .button-29:focus {
+      box-shadow: #66a2ba 0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #66a2ba 0 -3px 0 inset;
+    }
+    
+    .button-29:hover {
+      box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #66a2ba 0 -3px 0 inset;
+      transform: translateY(-2px);
+    }
+    
+    .button-29:active {
+      box-shadow: #66a2ba 0 3px 7px inset;
+      transform: translateY(2px);
+    }
+
+    .button-29-alpha {
+      align-items: center;
+      appearance: none;
+      background-color: #3c3f3f;
+      box-sizing: border-box;
+      color: #65b8da;
+      cursor: pointer;
+      display: inline-flex;
+      font-family: "JetBrains Mono",monospace;
+      height: 48px;
+      justify-content: center;
+      line-height: 1;
+      list-style: none;
+      overflow: hidden;
+      padding-left: 16px;
+      padding-right: 16px;
+      position: relative;
+      text-align: left;
+      text-decoration: none;
+      transition: box-shadow .15s,transform .15s;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      white-space: nowrap;
+      will-change: box-shadow,transform;
+      font-size: 18px;
+    }
+    
+    
+
+    
+  
