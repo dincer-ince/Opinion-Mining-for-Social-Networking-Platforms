@@ -1,1 +1,80 @@
 /* You can add global styles to this file, and also import other style files */
+/* Bordered form */
+body {
+  background-color: rgb(228, 228, 228);
+}
+
+.l-form {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.form {
+    margin-top: 30px;
+    width: 500px;
+    height: auto;
+    padding: 4rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(14, 14, 14, 0.2);
+    background-color: #3c3f3f;
+}
+
+.register {
+    color: rgb(185, 36, 36);
+    width: 100%;
+}
+
+/*
+form {
+    border: 3px solid #f1f1f1;
+  }
+  */
+  
+  /* Full-width inputs */
+  input[type=text], input[type=password] {
+    width: 100%;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  /* Set a style for all buttons */
+  button {
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Center the avatar image inside this container */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+  }
+  
+  /* Avatar image */
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+  }
+  
+  /* The "Forgot password" text */
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+
