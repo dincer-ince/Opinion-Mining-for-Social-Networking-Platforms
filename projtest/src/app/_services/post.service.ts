@@ -13,7 +13,8 @@ export class PostService {
     "Funny",
     "Sports",
     "Programming",
-    "Music"
+    "Music",
+    "Anime"
   ];
 
   rndComments:Comment[]=[
@@ -30,7 +31,7 @@ export class PostService {
     },
     {
       votes:1,
-      author:"dubcer",
+      author:"dincerince",
       text:"skdjsdk"
     },
     {
@@ -57,6 +58,30 @@ export class PostService {
 
   postas: Post[] = [
     {
+      postTopic: this.Topics[4],
+      postContent: "https://c.tenor.com/gmciOFywerkAAAAC/tokyo-revengers-draken.gif",
+      postOwner: "Dora",
+      postTitle: "Draken-kun!! ",
+      postComments: [this.rndComments[3],this.rndComments[2]],
+      postVotes: 678
+    },
+    {
+      postTopic: this.Topics[2],
+      postContent: "https://miro.medium.com/max/957/1*Gytsn6MVvF7Sv9SUNmZRMg.png",
+      postOwner: "dincerince",
+      postTitle: "Which one is better for ML??",
+      postComments: [this.rndComments[3],this.rndComments[2]],
+      postVotes: 983
+    },
+    {
+      postTopic: this.Topics[0],
+      postContent: "https://www.letseatcake.com/wp-content/uploads/2021/07/funny-memes-24.jpg",
+      postOwner: "Sude",
+      postTitle: "which one for you?",
+      postComments: [this.rndComments[3],this.rndComments[2]],
+      postVotes: 751
+    },
+    {
       postTopic: this.Topics[0],
       postContent: "https://i.redd.it/irxao14hqb581.png",
       postOwner: "Ahmet",
@@ -64,6 +89,7 @@ export class PostService {
       postComments: [this.rndComments[3],this.rndComments[2]],
       postVotes: 300
     },
+    
     {
       postTopic: this.Topics[0],
       postContent: "https://64.media.tumblr.com/958f628cb6dfc4913c64b3ad71afaa5b/tumblr_pxgvdvUHgn1ypupneo1_400.gifv",

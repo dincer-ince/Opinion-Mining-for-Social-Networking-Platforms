@@ -42,6 +42,7 @@ export class UserComponent implements OnInit {
 
     if(this.isUserMatch(body)){
       this.toastr.success('Login successful.');
+      localStorage.setItem('user',body.Email );
       this.router.navigate(['/mainpage']);
       console.log(this.service.users);
     } else {
@@ -55,7 +56,8 @@ export class UserComponent implements OnInit {
     var body = {
       Username: this.service.formModel_user.value.Username,
       Email: this.service.formModel_user.value.Email,
-      Password: this.service.formModel_user.value.Password
+      Password: this.service.formModel_user.value.Password,
+    TotalPosted: 0
     };
 
     if(!this.isUserExists(body)){
@@ -80,6 +82,8 @@ export class UserComponent implements OnInit {
     }
     return false;
   }
+
+
 
   isUserExists(user: any) {
 

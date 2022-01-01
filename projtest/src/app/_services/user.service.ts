@@ -19,22 +19,26 @@ users : User[] = [
   {
     Username: "mrtglr",
     Email: "mrt@gmail.com",
-    Password: "1234"
+    Password: "1234",
+    TotalPosted: 5
   },
   {
     Username: "dincerince",
     Email: "dincer@gmail.com",
-    Password: "1234"
+    Password: "1234",
+    TotalPosted: 5
   },
   {
     Username: "doracık",
     Email: "dora@gmail.com",
-    Password: "1234"
+    Password: "1234",
+    TotalPosted: 5
   },
   {
     Username: "sudesahin",
     Email: "sude@gmail.com",
-    Password: "1234"
+    Password: "1234",
+    TotalPosted: 5
   }
 ]
 }

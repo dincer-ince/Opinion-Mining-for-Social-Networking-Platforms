@@ -12,18 +12,24 @@
                     rows="1"></textarea>
 
             </li>
-            <i (click)="this.mainMenuOpen=true"
+            <i (click)="this.mainMenuOpen=1"
                 style="margin-left: 110%; border-right: solid;border-color: black;min-width: 15%;"
                 class="fas fa-home fa-3x "></i>
             <i style="margin-left: 5%;" class="fas fa-bell fa-3x "></i>
-            <i (click)="this.mainMenuOpen=false" style="margin-left: 5%;" class="fas fa-plus fa-3x "></i>
+            <i (click)="this.mainMenuOpen=2" style="margin-left: 5%;" class="fas fa-plus fa-3x "></i>
         </ul>
+        <button type="button"
+            style="width: 20%;margin-left: 45%;"
+            class="btn " (click)="this.mainMenuOpen=3;this.GetActiveUser();">
+            User Profile
+        </button>
+
     </div>
 </nav>
 
 
 
-<div *ngIf="mainMenuOpen==true" style="background-color: rgb(228, 228, 228);">
+<div *ngIf="mainMenuOpen==1" style="background-color: rgb(228, 228, 228);">
     <div style="margin-bottom: 50px; min-block-size: 50px;" class="container">
 
     </div>
@@ -97,7 +103,7 @@
 </div>
 
 <!-- Top Posts -->
-<div style="position:absolute;right:5%;top:30%">
+<div *ngIf="this.mainMenuOpen==1||this.mainMenuOpen==2" style="position:absolute;right:5%;top:30%">
     <div style="background-color: white; min-width: 400px; border-radius: 9px; " class="container">
         <div style="min-height: 30px;" class="row"></div>
         <h1 style=" margin-bottom: 30px; border-bottom: solid; border-color: black;min-height: 100px;">Top Posts</h1>
@@ -115,7 +121,7 @@
 
 
 <!-- New post -->
-<div *ngIf="this.mainMenuOpen==false" style="background-color: rgb(228, 228, 228);min-height:1440px;">
+<div *ngIf="this.mainMenuOpen==2" style="background-color: rgb(228, 228, 228);min-height:1440px;">
     <div style="margin-bottom: 50px; min-block-size: 50px; " class="container">
 
     </div>
@@ -151,7 +157,7 @@
                 <div style="margin-left: 60%;margin-top:50px;" class="row">
                     <button style="max-width: 150px; margin-right: 10px;" class="btn" (click)="createPost()">Create
                         Post</button>
-                    <button style="max-width: 100px; " class="btn" (click)="mainMenuOpen=true">cancel</button>
+                    <button style="max-width: 100px; " class="btn" (click)="mainMenuOpen=1">cancel</button>
                 </div>
                 <div style="min-height: 20px;" class="row"></div>
             </form>
@@ -166,6 +172,111 @@
 </div>
 
 
+
+<!-- your profile sidebar -->
+
+<div *ngIf="this.mainMenuOpen==3" style="position:absolute;right:5%;top:30%">
+    <div style="background-color: white; min-width: 400px; border-radius: 9px; " class="container">
+        <div style="min-height: 30px;" class="row"></div>
+        <h1 style=" margin-bottom: 30px; border-bottom: solid; border-color: black;min-height: 100px;">Your Profile</h1>
+
+        
+        <h3 class="btn-xl" 
+            style="margin-bottom: 30px; border-bottom: solid; border-color:  rgb(228, 228, 228); text-align: center; min-height: 60px;" >
+            Total posted: {{this.ActiveUser.TotalPosted}}</h3>
+            <span> {{ this.RandomNumber() }} </span>
+        <h3 class="btn-xl" 
+            style="margin-bottom: 30px; border-bottom: solid; border-color:  rgb(228, 228, 228); text-align: center; min-height: 60px;">
+            Total reacted: {{num}}</h3>
+            <span> {{ this.RandomNumber() }} </span>
+        <h3 class="btn-xl" 
+            style="margin-bottom: 30px; border-bottom: solid; border-color:  rgb(228, 228, 228); text-align: center; min-height: 60px;">
+            Total shared: {{num}}</h3>
+            <span> {{ this.RandomNumber() }} </span>
+        <h3 class="btn-xl" 
+            style="margin-bottom: 30px; border-bottom: solid; border-color:  rgb(228, 228, 228); text-align: center; min-height: 60px;">
+            Favorite Topic: Funny</h3>
+            <span> {{ this.RandomNumber() }} </span>          
+            
+        <button type="button"
+            style="margin-left:1px;margin-bottom: 10px;min-height: 60px; min-width: 70px;"
+            class="btn ">
+            Edit Profile
+        </button>    
+        
+        <div style="min-height: 30px;" class="row"></div>
+
+    </div>
+</div>
+
+
+
+<!-- user Profie -->
+<div *ngIf="mainMenuOpen==3" style="background-color: rgb(228, 228, 228);">
+    <div style="margin-bottom: 50px; min-block-size: 50px;" class="container">
+
+    </div>
+
+    <div style="margin-bottom: 50px; border-radius: 7px; background-color: white; min-height: 100px;" class="container">
+        <div style="text-align: center" class="row ">
+            <h1 style="margin-top: 20px;">Welcome to Your Profile {{this.ActiveUser.Username}}!</h1>
+            
+            
+        </div>
+    </div>
+    <h1 style="text-align: center">Your Created Posts</h1>
+    <!-- your Posts -->
+    <ng-container *ngFor="let element of viewPosts"  >
+
+
+        <div *ngIf="element.postOwner==this.ActiveUser.Username" class="container" style="border-radius: 10px; margin-bottom: 20px; background-color: white;">
+            <div class="row">
+                <div style="border-right: groove;" class="col-1 ">
+                    <i (click)="element.postVotes=element.postVotes+1" style="margin-left: 25%;"
+                        class="fas fa-caret-up fa-2x"></i>
+                    <h3 style="text-align: center;"> {{element.postVotes}}</h3>
+                    <i (click)="element.postVotes=element.postVotes-1" style="margin-left: 25%;"
+                        class="fas fa-caret-down fa-2x"></i>
+
+                </div>
+                <div class="col-6" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="this.Post=element">
+                    <h3 style="margin-top: 10px;">{{this.element.postOwner}}</h3>
+                    <h1>{{this.element.postTitle}}</h1>
+                </div>
+
+            </div>
+        </div>
+    </ng-container>
+
+    <!-- your Comments -->
+    <h1 style="text-align: center">Posts You have Commented on</h1>
+    <ng-container *ngFor="let element of viewPosts"  >
+
+
+        <ng-container *ngFor="let comment of element.postComments">
+            <div *ngIf="comment.author==this.ActiveUser.Username" class="container" style="border-radius: 10px; margin-bottom: 20px; background-color: white;">
+                <div class="row">
+                    <div style="border-right: groove;" class="col-1 ">
+                        <i (click)="element.postVotes=element.postVotes+1" style="margin-left: 25%;"
+                            class="fas fa-caret-up fa-2x"></i>
+                        <h3 style="text-align: center;"> {{element.postVotes}}</h3>
+                        <i (click)="element.postVotes=element.postVotes-1" style="margin-left: 25%;"
+                            class="fas fa-caret-down fa-2x"></i>
+    
+                    </div>
+                    <div class="col-6" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="this.Post=element">
+                        <h3 style="margin-top: 10px;">{{this.element.postOwner}}</h3>
+                        <h1>{{this.element.postTitle}}</h1>
+                    </div>
+                    
+                </div>
+                <!-- comment add gelicek -->
+            </div>
+        </ng-container>
+    </ng-container>
+
+
+</div>
 
 
 <!-- Modal -->
@@ -197,7 +308,7 @@
                     <form [formGroup]="this.formComment" autocomplete="off">
                         <textarea class="form-control" formControlName="commentText" rows="3"></textarea>
                     </form>
-                    <button class="btn" style="margin-left:80%;margin-top: 20px;" (click)="createComment()">Create
+                    <button class="btn" style="width:40%;margin-left:55%;margin-top: 20px;" (click)="createComment()">Create
                         Comment</button>
                 </div>
                 <ng-container *ngFor="let comment of this.Post.postComments">

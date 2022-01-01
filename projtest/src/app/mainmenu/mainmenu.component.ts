@@ -3,6 +3,8 @@ import { Post } from '../models/post.model';
 import { Comment } from '../models/comment.model';
 import { FormBuilder } from '@angular/forms';
 import { PostService } from '../_services/post.service';
+import { User } from '../models/user.model';
+import { UserService } from '../_services/user.service';
 
 
 @Component({
@@ -12,7 +14,7 @@ import { PostService } from '../_services/post.service';
 })
 export class MainmenuComponent implements OnInit {
 
-  constructor(private fb:FormBuilder, public service: PostService) { }
+  constructor(private fb:FormBuilder, public service: PostService,public userService: UserService) { }
 
   ngOnInit(): void {
     this.viewPosts= this.service.postas.slice();
@@ -24,7 +26,7 @@ export class MainmenuComponent implements OnInit {
 
   })
   
-  mainMenuOpen:boolean=true;
+  mainMenuOpen:number=1;
   
 
   formPost=this.fb.group({
@@ -35,7 +37,12 @@ export class MainmenuComponent implements OnInit {
     postComments:[this.service.rndComments[0],this.service.rndComments[2]], 
   })
 
-  
+  ActiveUser:User={
+    Username: "Admin",
+    Email: "filler",
+    Password: "filler",
+    TotalPosted: 0,
+  };
 
   Post: Post = {
     postTopic: "",
@@ -49,6 +56,20 @@ export class MainmenuComponent implements OnInit {
   viewPosts:Post[];
 
 
+  GetActiveUser(){
+    console.log("asd")
+    var bos=localStorage.getItem("user");
+    this.userService.users.forEach(element => {
+      if(element.Email==bos) this.ActiveUser=element;
+    });
+    
+  }
+  num:number;
+  RandomNumber(){
+    this.num= Math.floor(Math.random() * (25 - 1) + 1);
+    console.log(this.num)
+  }
+
   createPost(){
     this.service.postas.push({
       postTopic: this.formPost.value.postTopic,
@@ -59,7 +80,7 @@ export class MainmenuComponent implements OnInit {
       postVotes: 1
     })
     console.log(this.formPost)
-    this.mainMenuOpen=true;
+    this.mainMenuOpen=1;
     this.sortByNew();
   }
   
