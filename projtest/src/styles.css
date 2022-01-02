@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 /* Bordered form */
   
+  body {
+    background-color: rgb(228, 228, 228);
+  }
+
   .l-form {
       margin-top: 50px;
       display: flex;
@@ -17,6 +21,16 @@
       border-radius: 1rem;
       box-shadow: 0 10px 25px rgba(14, 14, 14, 0.2);
       background-color: #3c3f3f;
+  }
+
+  .form-admin {
+    margin-top: 30px;
+    width: 500px;
+    height: auto;
+    padding: 4rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(14, 14, 14, 0.2);
+    background-color: #ffffff;
   }
   
   .register {

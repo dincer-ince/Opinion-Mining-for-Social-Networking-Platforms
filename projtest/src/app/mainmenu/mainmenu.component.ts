@@ -5,6 +5,8 @@ import { FormBuilder } from '@angular/forms';
 import { PostService } from '../_services/post.service';
 import { User } from '../models/user.model';
 import { UserService } from '../_services/user.service';
+import { Router } from '@angular/router';
+import { ThisReceiver } from '@angular/compiler';
 
 
 @Component({
@@ -14,7 +16,7 @@ import { UserService } from '../_services/user.service';
 })
 export class MainmenuComponent implements OnInit {
 
-  constructor(private fb:FormBuilder, public service: PostService,public userService: UserService) { }
+  constructor(private fb:FormBuilder, public service: PostService,public userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.viewPosts= this.service.postas.slice();
@@ -110,5 +112,11 @@ export class MainmenuComponent implements OnInit {
     this.formComment.reset();
     this.Post.postComments.unshift(tempComment);
     
+  }
+
+  logout() {
+    if(confirm("Do you want to logout?")){
+      this.router.navigate(['/user']);
+    }
   }
 }
