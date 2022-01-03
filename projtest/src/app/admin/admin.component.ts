@@ -40,7 +40,7 @@ export class AdminComponent implements OnInit {
   deletePost(postTitle: string) {
     for(let i=0; i<this.postService.postas.length; i++){
       if(postTitle.match(this.postService.postas[i].postTitle)){
-        this.postService.postas[i] = null;
+        this.postService.postas.splice(i,1);
       }
     }
   }
@@ -61,7 +61,7 @@ export class AdminComponent implements OnInit {
       for(let i=0; i<this.userService.users.length; i++){
         if(this.userService.users[i]!=null && this.currentUsername.match(this.userService.users[i].Username)){
           console.log(this.userService.users[i]);
-          this.userService.users[i] = null;
+          this.userService.users.splice(i,1);
           this.toastr.info(this.currentUsername +" has deleted", "User deleted succesfully!");
         }
       }

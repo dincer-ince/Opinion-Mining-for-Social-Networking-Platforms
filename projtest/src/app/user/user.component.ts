@@ -57,7 +57,8 @@ export class UserComponent implements OnInit {
       Username: this.service.formModel_user.value.Username,
       Email: this.service.formModel_user.value.Email,
       Password: this.service.formModel_user.value.Password,
-    TotalPosted: 0
+      role: "false",
+      TotalPosted: 0
     };
 
     if(!this.isUserExists(body)){

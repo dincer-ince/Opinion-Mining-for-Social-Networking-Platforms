@@ -20,39 +20,60 @@ export class PostService {
   rndComments:Comment[]=[
     
     {
-      votes:3,
-      author:"memedma",
-      text:"hahaa"
-    },
-    {
-      votes:6,
-      author:"sude",
-      text:"lollol"
-    },
-    {
       votes:1,
       author:"dincerince",
       text:"skdjsdk"
     },
     {
       votes:3,
-      author:"Kerem",
+      author:"sudesahin",
       text:"komik degil"
     },
     {
       votes:3,
-      author:"dora",
+      author:"doracik",
       text:"komikmis"
     },
     {
       votes:3,
-      author:"Mert",
+      author:"mrtglr",
       text:"lsdksld"
     },
+    
     {
-      votes:0,
+      votes:23,
+      author:"mrtglr",
+      text:"Fav gif"
+    },
+    {
+      votes:56,
+      author:"doracik",
+      text:"Python is faster right?"
+    },
+    {
+      votes:-140,
       author:"",
       text:""
+    },
+    {
+      votes:19,
+      author:"dincerince",
+      text:"lol idk"
+    },
+    {
+      votes:12,
+      author:"sudesahin",
+      text:"u lucky"
+    },
+    {
+      votes:34,
+      author:"mrtglr",
+      text:"Feedbacks about this guitar is so positive man"
+    },
+    {
+      votes:75,
+      author:"mrtglr",
+      text:"Congratulations!!"
     },
   ]
 
@@ -70,40 +91,49 @@ export class PostService {
       postContent: "https://miro.medium.com/max/957/1*Gytsn6MVvF7Sv9SUNmZRMg.png",
       postOwner: "dincerince",
       postTitle: "Which one is better for ML??",
-      postComments: [this.rndComments[3],this.rndComments[2]],
+      postComments: [this.rndComments[4],this.rndComments[5]],
       postVotes: 983
     },
     {
       postTopic: this.Topics[0],
       postContent: "https://www.letseatcake.com/wp-content/uploads/2021/07/funny-memes-24.jpg",
-      postOwner: "Sude",
+      postOwner: "sudesahin",
       postTitle: "which one for you?",
-      postComments: [this.rndComments[3],this.rndComments[2]],
+      postComments: [this.rndComments[7],this.rndComments[8]],
       postVotes: 751
     },
     {
-      postTopic: this.Topics[0],
-      postContent: "https://i.redd.it/irxao14hqb581.png",
-      postOwner: "Ahmet",
-      postTitle: "funny words",
-      postComments: [this.rndComments[3],this.rndComments[2]],
-      postVotes: 300
+      postTopic: this.Topics[2],
+      postContent: "https://i.redd.it/iiqg1f9wg7981.jpg",
+      postOwner: "dincerince",
+      postTitle: "Always in Disguise..",
+      postComments: [this.rndComments[4],this.rndComments[5]],
+      postVotes: 46
+    },
+    {
+      postTopic: this.Topics[3],
+      postContent: "https://images.reverb.com/image/upload/s--Gv0h2G7S--/f_auto,t_supersize/v1529422133/jk27uzmspi3cjd71ytau.png",
+      postOwner: "mrtglr",
+      postTitle: "Getting this in new year.",
+      postComments: [this.rndComments[9],this.rndComments[10]],
+      postVotes: 751
+    },
+    {
+      postTopic: this.Topics[1],
+      postContent: "https://img-s1.onedio.com/id-61c9e13116f54d3767ede32c/rev-0/w-620/f-jpg/s-a50641db131b429dd74fae429ec79f4198e8674c.jpg",
+      postOwner: "dincerince",
+      postTitle: "Rekor? Turkiye'den?",
+      postComments: [this.rndComments[1],this.rndComments[2]],
+      postVotes: 987
+    },
+    {
+      postTopic: this.Topics[2],
+      postContent: "https://i.imgur.com/XNDrOXO.jpg",
+      postOwner: "mrtglr",
+      postTitle: "Happy New Year everyone!",
+      postComments: [this.rndComments[1],this.rndComments[2]],
+      postVotes: 987
     },
     
-    {
-      postTopic: this.Topics[0],
-      postContent: "https://64.media.tumblr.com/958f628cb6dfc4913c64b3ad71afaa5b/tumblr_pxgvdvUHgn1ypupneo1_400.gifv",
-      postOwner: "Ahmet",
-      postTitle: "look at this",
-      postComments: [this.rndComments[3],this.rndComments[2]],
-      postVotes: 5
-    },
-    {
-      postTopic: this.Topics[0],
-      postContent: "https://i.imgur.com/96frlHk.jpeg",
-      postOwner: "mehmet",
-      postTitle: "not funy",
-      postComments: [this.rndComments[3],this.rndComments[4]],
-      postVotes: 903
-    }];
-}
+    ];
+  }

@@ -4,4 +4,5 @@ export class User {
     Email: string;
     Password: string;
     TotalPosted: number;
+    role:string;
 }
